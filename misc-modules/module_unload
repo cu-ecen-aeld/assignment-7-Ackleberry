@@ -10,7 +10,7 @@ if [ $# -ne 1 ]; then
 fi
 
 # invoke rmmod with all arguments we got
-rmmod $module || exit 1
+modprobe -r $module || exit 1 # Use modprobe because its a legit driver in buildroot. rmmod is for local testing.
 
 # Remove stale nodes
 
